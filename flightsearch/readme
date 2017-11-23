@@ -1,0 +1,23 @@
+Queuing  management  system in multi  thread environment:
+There will be 2 independent  applications, application 1 and application 2.
+In application 1 give a provision to the user that create a schedule  which contains departure date,origin,destination,flight number,booking class and availability through screen.
+Once user creates the schdule convert the schdule to xml format and push the same into the queue.
+
+
+Application 2 should listen to queue  and fetch the schdules from the queue.
+Process the schdule from the queue and update the cache asynchronously.
+In application 2 there should be a screen to search the schdules from the cache and display to the user.
+
+
+
+http://localhost:8084/flightscheduler/scheduleflight
+
+
+{
+  "departuredate": "INR",
+  "origin":"India",
+  "destination":"UK",
+  "flightnumber": "IN121",
+  "bookingclass": "BUSINESS",
+  "availability":"10"
+}
