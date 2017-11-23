@@ -73,10 +73,15 @@ public class FlightSearchConfig {
 	 */
 	@Bean
 	public MessageListenerContainer getContainer() {
-		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
+		DefaultMessageListenerContainer container = null;
+		try{
+			container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory());
 		container.setDestinationName(QUEUE_NAME);
 		container.setMessageListener(messageReceiver);
+		} catch (Exception exception) {
+			logger.error("Error", exception);
+		}
 		return container;
 	}
 
